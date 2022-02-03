@@ -1,26 +1,14 @@
-// function solution(A);
-
-// that, given an array A of N integers, returns the smallest positive integer (greater than 0) that does not occur in A.
-
-// For example, given A = [1, 3, 6, 4, 1, 2], the function should return 5.
-
-// Given A = [1, 2, 3], the function should return 4.
-
-// Given A = [−1, −3], the function should return 1.
-
-// Write an efficient algorithm for the following assumptions:
-
-// N is an integer within the range [1..100,000];
-// each element of array A is an integer within the range [−1,000,000..1,000,000].
-// ================================================
-function solution(array) {
+function solution(arr) {
   // REMOVE DUPLICATES
-  //Array.from(new Set([1, 2, 3, 2, 1])); // => [1, 2, 3] new Set
-  console.log(array);
+  const array = Array.from(new Set(arr)); // => [1, 2, 3] new Set
 
   //GET ALL POSITIVES
   const isPositive = (n) => n > 0;
   const allPositives = array.filter(isPositive);
+
+  if (allPositives.length === 0) {
+    return 1;
+  }
   // ================================================
 
   //RETURN SMALLEST IN ARRAY
@@ -45,7 +33,11 @@ function solution(array) {
   const theNumber = newMin(min);
   // ================================================
 
-  return console.log("newMin thats not in the list ", theNumber);
+  //return console.log("theNumber", theNumber);
+  return theNumber;
 }
-
-solution([5, 2, 4, 3, 6, 6, 7, -1, 13, -4, 9, 22]);
+//===============================================
+//TEST
+solution([1, 3, 6, 4, 1, 2, 7, 7]); //5
+solution([1, 2, 3]); //4
+solution([-1, -3]); //1

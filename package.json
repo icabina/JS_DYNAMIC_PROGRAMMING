@@ -1,0 +1,20 @@
+{
+  "name": "dynamicprogramming",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "start": "start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/icabina/dynamic_programming.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/icabina/dynamic_programming/issues"
+  },
+  "homepage": "https://github.com/icabina/dynamic_programming#readme"
+}
