@@ -5,7 +5,7 @@ const gridTraveler = (m, n, memo = {}) => {
   //are the args in the memo??
   if (key in memo) return memo[key];
 
-  if (m === 1 && n === 1) return 1; //only one way to travel
+  if (m === 1 || n === 1) return 1; //only one way to travel
   if (m === 0 || n === 0) return 0; //no grid, no execution
 
   //recursive scenario: get the sum of going downwards and righwards
