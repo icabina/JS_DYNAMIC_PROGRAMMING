@@ -20,9 +20,11 @@ function solution(message, K) {
     }
   }
 
-  compare(newArray, ka);
-  return newArray;
+  const compara = compare(newArray, ka);
+  let stringArray = compara.join(""); //removes comas
+
+  return stringArray;
 }
-console.log(solution("Codility We test coders", 14));
+console.log(solution("Codility We test coders", 10));
 //reduce el string a el numero,
 //si no termina en vacio sigue agregando para no cortar palabra
