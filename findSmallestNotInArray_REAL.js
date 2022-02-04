@@ -48,21 +48,24 @@ function solution(array) {
   //THEN ADD ONE
   // min = min + 1;
 
-  console.log(allPositives);
-  const containSet = new Set();
+  const container = new Set();
   let max = 0;
-  for (let n of allPositives) {
-    containSet.add(n);
-    if (n > max) max = n;
-  }
-  console.log(containSet);
-  let a = 1;
-  do {
-    if (!containSet.has(a)) return a;
-    a++;
-  } while (a <= max);
+  let counter = 1;
 
-  return a;
+  for (let n of allPositives) {
+    container.add(n);
+    if (n > max) max = n; //va colculando el maximo
+  }
+
+  //RECURSIVE
+  //busca en el set, mas rapido que en array
+  do {
+    if (!container.has(counter)) return counter;
+    counter++;
+  } while (counter <= max);
+
+  return counter;
+
   //RECURSIVE
   //adds one to min to check next
   // const newMin = (allPositives) => {
