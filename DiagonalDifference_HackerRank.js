@@ -1,4 +1,4 @@
-const diagonalDifference = (arr) => {
+const diagonalDifference = (n, arr) => {
   const dim = arr[0].length;
   let first_diag_sum = 0;
   let second_diag_sum = 0;
@@ -14,14 +14,21 @@ const diagonalDifference = (arr) => {
   if (sum > 0) {
     return sum;
   } else if (sum <= 0) {
-    return sum * -1;
+    return sum * -1; //the absolute difference
   }
 };
-
+//=================================================
 console.log(
-  diagonalDifference([
+  diagonalDifference(3, [
     [1, 2, 3],
     [4, 5, 6],
     [9, 8, 9],
+  ])
+);
+console.log(
+  diagonalDifference(3, [
+    [11, 2, 4],
+    [4, 5, 6],
+    [10, 8, -12],
   ])
 );
