@@ -6,7 +6,7 @@
 // JavaScript program for implementation
 // of Heap Sort
 //====================================================
-function sort(arr) {
+function heapSort(arr) {
   var n = arr.length;
 
   // Math.ceil(5.5) // Answer 6, rounds up.
@@ -18,7 +18,7 @@ function sort(arr) {
 
   for (var i = Math.floor(n / 2) - 1; i >= 0; i--) heapify(arr, n, i);
 
-  console.log(arr); // [13, 12, 11, 5, 4, 6, 7]
+  // console.log(arr); // [13, 12, 11, 5, 4, 6, 7]
   // One by one extract an element from heap
   for (var i = n - 1; i > 0; i--) {
     // Move current root to end
@@ -30,7 +30,7 @@ function sort(arr) {
     heapify(arr, i, 0);
   }
 
-  console.log(arr); // [4, 5, 6, 7, 11, 12, 13]
+  return arr;
 }
 //====================================================
 // To heapify a subtree rooted with node i which is
@@ -58,24 +58,24 @@ function heapify(arr, n, i) {
     // Recursively heapify the affected sub-tree
     heapify(arr, n, largest);
   }
-  console.log(arr);
+  // console.log(arr);
 }
 // heapify([5, 12, 11, 13, 4, 6, 7], 7, 0);
 
 //====================================================
 /* A utility function to print array of size n */
-function printArray(arr) {
-  var n = arr.length;
-  for (var i = 0; i < n; ++i) document.write(arr[i] + " ");
-}
+// function printArray(arr) {
+//   var n = arr.length;
+//   for (var i = 0; i < n; ++i) document.write(arr[i] + " ");
+// }
 //====================================================
-var arr = [5, 12, 11, 13, 4, 6, 7];
-var n = arr.length;
+console.log(heapSort([5, 12, 66, 7, 1, 90, 1110, 11, 13, 4, 6, 7]));
+// var n = arr.length;
 
-sort(arr);
+// sort(arr);
 
-document.write("Sorted array is <br>");
-printArray(arr, n);
+// document.write("Sorted array is <br>");
+// printArray(arr, n);
 // Sorted array is
 // 5 6 7 11 12 13
 
