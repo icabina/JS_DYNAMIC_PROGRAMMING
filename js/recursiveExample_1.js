@@ -1,5 +1,5 @@
 const rxIsoDate =
-  /\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+([+-][0-2]\d:[0-5]\d|Z)/;
+  /\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+([+-][0-2]\d:[0-5]\d|Z)/; //regExp
 const isIsoDate = (value) => typeof value === "string" && rxIsoDate.test(value);
 
 const raw = {
@@ -29,3 +29,29 @@ const toJsDate = (obj) => {
 console.log(toJsDate(raw));
 
 //======================================================================
+const toJsDateReduce = (obj) => {
+  if (isIsoDate(obj)) return new Date(obj);
+  if (typeof obj !== "object") return obj;
+
+  return Object.entries(obj).reduce(
+    (nextObj, [prop, value]) =>
+      Object.assign(nextObj, { [prop]: toJsDate(value) }),
+    {}
+  );
+};
+
+console.log(toJsDateReduce(raw));
+
+//======================================================================
+const toJsDateEntries = (obj) => {
+  if (isIsoDate(obj)) return new Date(obj);
+  if (typeof obj !== "object") return obj;
+
+  const entries = Object.entries(obj).map(([prop, value]) => [
+    prop,
+    toJsDate(value),
+  ]);
+  return Object.fromEntries(entries);
+};
+
+console.log(toJsDateEntries(raw));
