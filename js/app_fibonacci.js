@@ -17,6 +17,7 @@ const fib = (n, memo = {}) => {
   //THEN PROCEED
   if (n <= 2) return 1;
   //return fib(n - 1) + fib(n - 2);
+
   //store it in MEMO
   memo[n] = fib(n - 1, memo) + fib(n - 2, memo);
   //ALL recursive calls have to access memo, so pass memo
